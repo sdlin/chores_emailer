@@ -14,6 +14,7 @@ var SECOND_EMAIL_DELAY_MILLIS = daysToMillis(5);
 
 function main() {
   var sheet = SpreadsheetApp.getActiveSheet();
+  updateCurrentLine(sheet, getCurrentRowNum(sheet));
   var currentRowNum = getCurrentRowNum(sheet);
   
   var emailNumToSend = whichEmailNumToSend(sheet, currentRowNum);
@@ -24,11 +25,10 @@ function main() {
   sendEmail(sheet, currentRowNum, emailNumToSend);
   
   setSent(sheet, currentRowNum, emailNumToSend);
-  updateCurrentLine(sheet, emailNumToSend, currentRowNum);
 }
 
-function updateCurrentLine(sheet, emailNumToSend, currentRowNum) {
-  if (emailNumToSend == COLNUM_SECOND_SENT) {
+function updateCurrentLine(sheet, currentRowNum) {
+  if (hasValue(sheet, currentRowNum, COLNUM_SECOND_SENT)) {
      sheet.getRange(ROWNUM_CURRENT_LINE, COLNUM_CURRENT_LINE).setValue(currentRowNum + 1);
      SpreadsheetApp.flush();
   }

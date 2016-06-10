@@ -20,10 +20,14 @@ The script should be set to run periodically (e.g. once a day) using a Time-driv
 
 The number under `Current Line` is the row number that the script will look at.
 
+If the 2nd email has been sent, then the `Current Line` will be incremented.
+
 If the current time isn't past the date, then no email will be sent.
 
 Otherwise, if the 1st email hasn't been sent, then it will be sent, and the spreadsheet will be marked.
 
 If the 1st email was already sent, the 2nd email will be sent if the the delay period has passed (see 2nd Email Delay Period constant in the script).
 
-If both emails have been sent, then the current line will be updated to point to the next line.
+## Usage
+
+After completing a chore mark the `2nd Email Sent` column so you won't get the 2nd reminder email.

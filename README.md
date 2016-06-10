@@ -1,7 +1,7 @@
 # Chores Emailer
 
 This is a Google app script which sends chore reminder emails.
-It's mean be an Add-on script to a Google spreadsheet.
+It's meant be an Add-on script to a Google spreadsheet.
 
 ## Spreadsheet layout
 

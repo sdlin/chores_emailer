@@ -59,7 +59,7 @@ function shouldSendEmail(date, emailsLeft) {
 
 
 function sendEmail(email, chore, emailsLeft) {
-  var subject = makeSubject(emailsLeft, chore);
+  var subject = makeSubject(emailsLeft - 1, chore);
   if (emailsLeft > 1) {
     var message = "After you complete the chore, update the spreadsheet to have 0 " + 
       "notifications left, or you will get more notifications.\n" + SPREADSHEET_URL;
@@ -72,8 +72,8 @@ function sendEmail(email, chore, emailsLeft) {
 }
 
 
-function makeSubject(emailNumToSend, chore) {
-  return "Clean the " + chore + ". " + emailNumToSend + " Reminders Left.";
+function makeSubject(numEmailsLeft, chore) {
+  return "Clean the " + chore + ". " + numEmailsLeft + " Reminders Left.";
 }
 
 

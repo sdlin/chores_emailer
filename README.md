@@ -7,27 +7,22 @@ It's meant be an Add-on script to a Google spreadsheet.
 
 The spreadsheet should look like:
 
-| A          | B                 | C         | D              | E              | F | G            |
-|------------|-------------------|-----------|----------------|----------------|---|--------------|
-| Date       | Email             | Chore     | 1st Email Sent | 2nd Email Sent |   | Current Line |
-| 2016-06-20 | personA@gmail.com | Floors    | 1              |                |   | 2            |
-| 2016-06-21 | personB@gmail.com | Bathrooms |                |                |   |              |
+| A          | B                 | C         | D                  |
+|------------|-------------------|-----------|--------------------|
+| Date       | Email             | Chore     | Notifications Left |
+| 2016-06-20 | personA@gmail.com | Floors    | 1                  |
+| 2016-06-21 | personB@gmail.com | Bathrooms |                    |
 
 
 ## Script Logic
 
 The script should be set to run periodically (e.g. once a day) using a Time-driven trigger.
 
-The number under `Current Line` is the row number that the script will look at.
+This will go through all of the lines in the spreadsheet, determine if an email needs to be sent, and then sends an email.
 
-If the 2nd email has been sent, then the `Current Line` will be incremented.
+Multiple notifications can be sent.  The time between notifications is specified in the script.
 
-If the current time isn't past the date, then no email will be sent.
-
-Otherwise, if the 1st email hasn't been sent, then it will be sent, and the spreadsheet will be marked.
-
-If the 1st email was already sent, the 2nd email will be sent if the the delay period has passed (see 2nd Email Delay Period constant in the script).
 
 ## Usage
 
-After completing a chore mark the `2nd Email Sent` column so you won't get the 2nd reminder email.
+After completing a chore, set the `Notifications Left` column to 0.
